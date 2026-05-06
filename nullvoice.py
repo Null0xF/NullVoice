@@ -23,8 +23,8 @@ class NullVoiceGUI(ctk.CTk):
         ctk.set_default_color_theme("blue")
 
         # Audio State
-        self.pitch_val = 0.85  # More intelligible default
-        self.ring_val = 15     # Subtle metallic effect
+        self.pitch_val = 0.65  # Deep Anonymous style voice
+        self.ring_val = 0      # No metallic effect
         self.bits_val = 16     # Clean audio by default
         self.gate_val = 0.005  # Lower gate for better sensitivity
         self.monitor_active = ctk.BooleanVar(value=True)
@@ -87,13 +87,13 @@ class NullVoiceGUI(ctk.CTk):
         self.sliders_frame.grid(row=3, column=0, padx=20, pady=20, sticky="nsew")
 
         # Pitch Slider
-        self.add_control("PITCH SHIFT", 0.5, 1.5, 0.7, self.update_pitch)
+        self.add_control("PITCH SHIFT", 0.5, 1.5, 0.65, self.update_pitch)
         
         # Ring Mod Slider
-        self.add_control("METALLIC FREQ (Hz)", 0, 100, 40, self.update_ring)
+        self.add_control("METALLIC FREQ (Hz)", 0, 100, 0, self.update_ring)
 
         # Bit Depth Slider
-        self.add_control("BIT DEPTH", 2, 16, 8, self.update_bits)
+        self.add_control("BIT DEPTH", 2, 16, 16, self.update_bits)
 
         # Noise Gate Slider
         self.add_control("NOISE GATE", 0.0, 0.1, 0.01, self.update_gate)
